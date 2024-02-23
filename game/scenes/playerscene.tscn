@@ -1,3 +1,73 @@
-[gd_scene format=3 uid="uid://m67xs2bu0xrq"]
+[gd_scene load_steps=8 format=3 uid="uid://b02ybn2lft6uk"]
 
-[node name="Playerscene" type="Node2D"]
+[ext_resource type="Texture2D" path="res://Assets/Meow Knight/Meow-Knight_Idle.png" id="1_vc2sb"]
+[ext_resource type="Texture2D" uid="uid://bd8m2fmc3fo4e" path="res://assets/external_assets/Meow Knight/Meow-Knight_Run.png" id="2_txgch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pjs"]
+size = Vector2(12, 16)
+
+[sub_resource type="Animation" id="Animation_qonhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w0vpo"]
+resource_name = "Idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="Animation" id="Animation_fjqaj"]
+resource_name = "Walk"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmrcw"]
+_data = {
+"Idle": SubResource("Animation_w0vpo"),
+"RESET": SubResource("Animation_qonhh"),
+"Walk": SubResource("Animation_fjqaj")
+}
+
+[node name="Playerscene" type="Node"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(27, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_g6pjs")
+
+[node name="IdleSprite" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+texture = ExtResource("1_vc2sb")
+vframes = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(144, -78)
+texture = ExtResource("2_txgch")
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qmrcw")
+}
