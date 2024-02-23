@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b02ybn2lft6uk"]
+[gd_scene load_steps=7 format=3 uid="uid://m67xs2bu0xrq"]
 
-[ext_resource type="Texture2D" uid="uid://k2jl2wh025cc" path="res://assets/external_assets/Meow Knight/Meow-Knight_Idle.png" id="1_aitha"]
+[ext_resource type="Texture2D" uid="uid://dmvipkr7kefmn" path="res://assets/external_assets/Meow Knight/Meow-Knight_Idle.png" id="1_aitha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pjs"]
 size = Vector2(12, 16)
@@ -50,13 +50,16 @@ _data = {
 [node name="Playerscene" type="Node"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(27, -8)
+position = Vector2(256, 364)
+scale = Vector2(1.9, 1.9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_g6pjs")
 
 [node name="IdleSprite" type="Sprite2D" parent="CharacterBody2D"]
 texture_filter = 1
+scale = Vector2(3, 3)
 texture = ExtResource("1_aitha")
 vframes = 6
 
