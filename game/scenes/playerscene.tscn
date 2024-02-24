@@ -109,10 +109,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pjs"]
-size = Vector2(12, 16)
+size = Vector2(9.82456, 14.3859)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hpka"]
-size = Vector2(36.8421, 47.3684)
+size = Vector2(21.5789, 37.3684)
 
 [node name="Playerscene" type="Node"]
 
@@ -129,6 +129,7 @@ sprite_frames = SubResource("SpriteFrames_wnidl")
 animation = &"runLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-3.1579, 1.0527)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_g6pjs")
 
@@ -136,8 +137,8 @@ shape = SubResource("RectangleShape2D_g6pjs")
 texture_filter = 1
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox"]
-position = Vector2(0, 1.52588e-05)
+[node name="Damage" type="CollisionShape2D" parent="CharacterBody2D/HurtBox"]
+position = Vector2(-2.36842, -1.84209)
 shape = SubResource("RectangleShape2D_0hpka")
 
 [connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]

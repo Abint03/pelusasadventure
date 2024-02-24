@@ -787,7 +787,7 @@ layer_0/tile_data = PackedInt32Array(983040, 65536, 0, 983041, 131072, 0, 983042
 [node name="Playerscene" parent="." instance=ExtResource("3_7fffn")]
 
 [node name="DropBoundarie" parent="." instance=ExtResource("4_lc608")]
-position = Vector2(29, -15)
+position = Vector2(20, 36)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

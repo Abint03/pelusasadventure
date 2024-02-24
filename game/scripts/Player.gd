@@ -8,7 +8,6 @@ func _physics_process(delta):
 	direction = Input.get_axis("ui_left","ui_right")
 	velocity.x = direction * speed
 	
-	
 	if direction == 0:
 		_animated_sprite.play("idle")
 	if direction > 0:
@@ -22,5 +21,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hurt_box_area_entered(area):
-	print("collied!")
+	if area.is_in_group("killsPlayer"):
+		position.x=256
+		position.y=364
 
