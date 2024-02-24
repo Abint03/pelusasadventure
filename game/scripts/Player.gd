@@ -3,6 +3,7 @@ var speed := 390
 var direction:= 0.0 #no uso vector 2 porque solamente el player se mueve de izquierda a derecha
 const gravity := 30
 var jump := 650
+var cameraLimitPosition: float
 @onready var _animated_sprite = $AnimatedSprite2D
 
 func _ready():

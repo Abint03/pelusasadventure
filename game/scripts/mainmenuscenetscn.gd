@@ -12,7 +12,8 @@ func _process(delta):
 
 
 func _on_start_game_pressed():
-	get_tree().change_scene_to_file("res://scenes/gamescene.tscn")
+	print("Starting game")
+	get_tree().change_scene_to_file("res://scenes/Levels/Level1.tscn")
 
 
 func _on_exit_game_pressed():

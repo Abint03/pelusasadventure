@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://iq0cwqrb1o8i" path="res://assets/player/runLeft/runL7.png" id="14_wv6qe"]
 [ext_resource type="Texture2D" uid="uid://bpr35v7v2uxuf" path="res://assets/player/run/run8.png" id="15_iu158"]
 [ext_resource type="Texture2D" uid="uid://8xnk5si24wqw" path="res://assets/player/runLeft/runL8.png" id="15_mcl8v"]
-[ext_resource type="Script" path="res://scripts/cameraScript.gd" id="25_sdcgg"]
+[ext_resource type="Script" path="res://scripts/cameraScript.gd" id="24_i4tl6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wnidl"]
 animations = [{
@@ -125,29 +125,30 @@ script = ExtResource("1_n1bu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wnidl")
 animation = &"runLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-3.1579, 1.84218)
-scale = Vector2(3, 3)
+position = Vector2(-2.10529, 0.789551)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_g6pjs")
 
 [node name="HurtBox" type="Area2D" parent="CharacterBody2D" groups=["player"]]
 texture_filter = 1
+position = Vector2(-2.10527, 2.63159)
+scale = Vector2(0.5, 0.5)
 collision_mask = 6
 
 [node name="Damage" type="CollisionShape2D" parent="CharacterBody2D/HurtBox"]
-position = Vector2(-2.36842, -1.84209)
+position = Vector2(-0.263195, -6.0526)
 shape = SubResource("RectangleShape2D_0hpka")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 limit_left = 0
 limit_top = 0
 limit_bottom = 720
-editor_draw_limits = true
-script = ExtResource("25_sdcgg")
+script = ExtResource("24_i4tl6")
 
 [connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]
 [connection signal="area_entered" from="CharacterBody2D/HurtBox" to="CharacterBody2D" method="_on_hurt_box_area_entered"]
