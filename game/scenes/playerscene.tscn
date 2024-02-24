@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://m67xs2bu0xrq"]
+[gd_scene load_steps=27 format=3 uid="uid://m67xs2bu0xrq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_n1bu1"]
 [ext_resource type="Texture2D" uid="uid://die7h204pi8ux" path="res://assets/player/idle/idle1.png" id="2_egl1l"]
@@ -7,6 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://dc041f8x5ww61" path="res://assets/player/idle/idle4.png" id="5_2yhqd"]
 [ext_resource type="Texture2D" uid="uid://cuyicqrwq2t1p" path="res://assets/player/idle/idle5.png" id="6_crh5p"]
 [ext_resource type="Texture2D" uid="uid://cyq5j3hgi5v6a" path="res://assets/player/idle/idle6.png" id="6_ltjwn"]
+[ext_resource type="Texture2D" uid="uid://l2rxqvfbm5yn" path="res://assets/player/run/run1.png" id="8_822mi"]
+[ext_resource type="Texture2D" uid="uid://ixaqtgfgxllr" path="res://assets/player/runLeft/runL1.png" id="8_g26sh"]
+[ext_resource type="Texture2D" uid="uid://c63sq3xmbitki" path="res://assets/player/runLeft/runL2.png" id="9_brnb7"]
+[ext_resource type="Texture2D" uid="uid://bbefj7rsjyjb7" path="res://assets/player/run/run2.png" id="9_hvgon"]
+[ext_resource type="Texture2D" uid="uid://cao1h1fvm3xjn" path="res://assets/player/runLeft/runL3.png" id="10_fj83m"]
+[ext_resource type="Texture2D" uid="uid://cu6yx25jaufqs" path="res://assets/player/run/run3.png" id="10_so71h"]
+[ext_resource type="Texture2D" uid="uid://bn6qeoknkt8b7" path="res://assets/player/runLeft/runL4.png" id="11_4vili"]
+[ext_resource type="Texture2D" uid="uid://dpl8b14pjuv4o" path="res://assets/player/run/run4.png" id="11_gn7ds"]
+[ext_resource type="Texture2D" uid="uid://bd1gakkv2u25r" path="res://assets/player/run/run5.png" id="12_l5c15"]
+[ext_resource type="Texture2D" uid="uid://c6tsxle8fp688" path="res://assets/player/runLeft/runL5.png" id="12_lcaob"]
+[ext_resource type="Texture2D" uid="uid://dnvfxf4y62ddc" path="res://assets/player/run/run6.png" id="13_inu6l"]
+[ext_resource type="Texture2D" uid="uid://dfmydqtds1wp8" path="res://assets/player/runLeft/runL6.png" id="13_yov0h"]
+[ext_resource type="Texture2D" uid="uid://dpm2w1xrrjgdm" path="res://assets/player/run/run7.png" id="14_7b5cl"]
+[ext_resource type="Texture2D" uid="uid://iq0cwqrb1o8i" path="res://assets/player/runLeft/runL7.png" id="14_wv6qe"]
+[ext_resource type="Texture2D" uid="uid://bpr35v7v2uxuf" path="res://assets/player/run/run8.png" id="15_iu158"]
+[ext_resource type="Texture2D" uid="uid://8xnk5si24wqw" path="res://assets/player/runLeft/runL8.png" id="15_mcl8v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wnidl"]
 animations = [{
@@ -32,6 +48,64 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_g26sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_brnb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fj83m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4vili")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lcaob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yov0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wv6qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mcl8v")
+}],
+"loop": true,
+"name": &"runLeft",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_822mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hvgon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_so71h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gn7ds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l5c15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_inu6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7b5cl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_iu158")
+}],
+"loop": true,
+"name": &"runRight",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pjs"]
@@ -52,8 +126,7 @@ script = ExtResource("1_n1bu1")
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wnidl")
-animation = &"idle"
-frame_progress = 0.294013
+animation = &"runLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(3, 3)

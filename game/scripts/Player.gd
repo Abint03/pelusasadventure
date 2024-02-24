@@ -8,8 +8,13 @@ func _physics_process(delta):
 	direction = Input.get_axis("ui_left","ui_right")
 	velocity.x = direction * speed
 	
+	
 	if direction == 0:
 		_animated_sprite.play("idle")
+	if direction > 0:
+		_animated_sprite.play("runRight")
+	if direction < 0:
+		_animated_sprite.play("runLeft")
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y -= jump
 	if !is_on_floor():
