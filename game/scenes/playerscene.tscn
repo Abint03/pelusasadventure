@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://m67xs2bu0xrq"]
+[gd_scene load_steps=28 format=3 uid="uid://m67xs2bu0xrq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_n1bu1"]
 [ext_resource type="Texture2D" uid="uid://die7h204pi8ux" path="res://assets/player/idle/idle1.png" id="2_egl1l"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://iq0cwqrb1o8i" path="res://assets/player/runLeft/runL7.png" id="14_wv6qe"]
 [ext_resource type="Texture2D" uid="uid://bpr35v7v2uxuf" path="res://assets/player/run/run8.png" id="15_iu158"]
 [ext_resource type="Texture2D" uid="uid://8xnk5si24wqw" path="res://assets/player/runLeft/runL8.png" id="15_mcl8v"]
+[ext_resource type="Script" path="res://scripts/cameraScript.gd" id="25_sdcgg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wnidl"]
 animations = [{
@@ -140,6 +141,13 @@ collision_mask = 6
 [node name="Damage" type="CollisionShape2D" parent="CharacterBody2D/HurtBox"]
 position = Vector2(-2.36842, -1.84209)
 shape = SubResource("RectangleShape2D_0hpka")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 720
+editor_draw_limits = true
+script = ExtResource("25_sdcgg")
 
 [connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]
 [connection signal="area_entered" from="CharacterBody2D/HurtBox" to="CharacterBody2D" method="_on_hurt_box_area_entered"]
