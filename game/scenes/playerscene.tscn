@@ -1,82 +1,71 @@
-[gd_scene load_steps=9 format=3 uid="uid://m67xs2bu0xrq"]
+[gd_scene load_steps=11 format=3 uid="uid://m67xs2bu0xrq"]
 
-[ext_resource type="Texture2D" uid="uid://k2jl2wh025cc" path="res://assets/external_assets/Meow Knight/Meow-Knight_Idle.png" id="1_aitha"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_u3jtj"]
-[ext_resource type="Texture2D" uid="uid://cpxxqqumbbioq" path="res://assets/external_assets/Meow Knight/Meow-Knight_Jump.png" id="3_l8dbf"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_n1bu1"]
+[ext_resource type="Texture2D" uid="uid://die7h204pi8ux" path="res://assets/player/idle/idle1.png" id="2_egl1l"]
+[ext_resource type="Texture2D" uid="uid://dep2e3vd03b2s" path="res://assets/player/idle/idle2.png" id="3_tu6o8"]
+[ext_resource type="Texture2D" uid="uid://b1m37ydkwqegl" path="res://assets/player/idle/idle3.png" id="4_7um7g"]
+[ext_resource type="Texture2D" uid="uid://dc041f8x5ww61" path="res://assets/player/idle/idle4.png" id="5_2yhqd"]
+[ext_resource type="Texture2D" uid="uid://cuyicqrwq2t1p" path="res://assets/player/idle/idle5.png" id="6_crh5p"]
+[ext_resource type="Texture2D" uid="uid://cyq5j3hgi5v6a" path="res://assets/player/idle/idle6.png" id="6_ltjwn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnidl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_egl1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tu6o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7um7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2yhqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_crh5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ltjwn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pjs"]
 size = Vector2(12, 16)
 
-[sub_resource type="Animation" id="Animation_w0vpo"]
-resource_name = "Idle"
-length = 0.75
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IdleSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 4, 3, 2, 1, 2, 3, 4]
-}
-
-[sub_resource type="Animation" id="Animation_qonhh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IdleSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_fjqaj"]
-resource_name = "Walk"
-length = 3.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmrcw"]
-_data = {
-"Idle": SubResource("Animation_w0vpo"),
-"RESET": SubResource("Animation_qonhh"),
-"Walk": SubResource("Animation_fjqaj")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hpka"]
+size = Vector2(36.8421, 47.3684)
 
 [node name="Playerscene" type="Node"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(256, 364)
 scale = Vector2(1.9, 1.9)
-script = ExtResource("1_u3jtj")
+collision_mask = 6
+script = ExtResource("1_n1bu1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_wnidl")
+animation = &"idle"
+frame_progress = 0.294013
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_g6pjs")
 
-[node name="IdleSprite" type="Sprite2D" parent="Player"]
+[node name="HurtBox" type="Area2D" parent="CharacterBody2D" groups=["player"]]
 texture_filter = 1
-position = Vector2(1.05264, -12.6316)
-scale = Vector2(3, 3)
-texture = ExtResource("1_aitha")
-vframes = 6
+collision_mask = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_qmrcw")
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox"]
+position = Vector2(0, 1.52588e-05)
+shape = SubResource("RectangleShape2D_0hpka")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-light_mask = 0
-texture_filter = 1
-position = Vector2(40.6842, 0.526316)
-scale = Vector2(0.94079, 1)
-texture = ExtResource("3_l8dbf")
-vframes = 12
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]
+[connection signal="area_entered" from="CharacterBody2D/HurtBox" to="CharacterBody2D" method="_on_hurt_box_area_entered"]
