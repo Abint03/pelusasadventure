@@ -1,18 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq7i74u4khjp"]
+[gd_scene load_steps=12 format=3 uid="uid://bq7i74u4khjp"]
 
-[ext_resource type="Texture2D" uid="uid://jtjvj3q02h6d" path="res://assets/items/tunaItem.png" id="1_07c0i"]
+[ext_resource type="Texture2D" uid="uid://qsje3ap5o0vb" path="res://assets/items/animations pruebas/tunab1.png" id="5_yc5k4"]
+[ext_resource type="Texture2D" uid="uid://buco4y1ejllm" path="res://assets/items/animations pruebas/tunab2.png" id="6_g88bn"]
+[ext_resource type="Texture2D" uid="uid://1ig3c3s8uv7w" path="res://assets/items/animations pruebas/tunab3.png" id="7_6j4n8"]
+[ext_resource type="Texture2D" uid="uid://cx5hvtbdldir1" path="res://assets/items/animations pruebas/tunab8.png" id="8_y7n7f"]
+[ext_resource type="Texture2D" uid="uid://rif8bkcw28p1" path="res://assets/items/animations pruebas/tunab4.png" id="8_yh0m7"]
+[ext_resource type="Texture2D" uid="uid://bfw2k1w0dhc6u" path="res://assets/items/animations pruebas/tunab5.png" id="9_7jgfi"]
+[ext_resource type="Texture2D" uid="uid://bewwju1defsm1" path="res://assets/items/animations pruebas/tunab9.png" id="9_qxo52"]
+[ext_resource type="Texture2D" uid="uid://bwbt4j00bdb5j" path="res://assets/items/animations pruebas/tunab6.png" id="10_1hh5e"]
+[ext_resource type="Texture2D" uid="uid://df86saev1k3rn" path="res://assets/items/animations pruebas/tunab7.png" id="11_gy2vr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdexl"]
-size = Vector2(35, 35.4545)
+[sub_resource type="SpriteFrames" id="SpriteFrames_egr8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yc5k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g88bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6j4n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yh0m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7jgfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1hh5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gy2vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y7n7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qxo52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y7n7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gy2vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1hh5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7jgfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yh0m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6j4n8")
+}],
+"loop": true,
+"name": &"tuna",
+"speed": 10.0
+}]
 
-[node name="Sprite2D" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3stgv"]
+size = Vector2(41, 47.5)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D"]
 texture_filter = 1
-position = Vector2(250, 109)
-scale = Vector2(1, 1.1)
-texture = ExtResource("1_07c0i")
+position = Vector2(290, 106)
+sprite_frames = SubResource("SpriteFrames_egr8s")
+animation = &"tuna"
+frame_progress = 0.624642
 
-[node name="Area2D" type="Area2D" parent="." groups=["itemGroup"]]
+[node name="Area2D2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5, 2.72727)
-shape = SubResource("RectangleShape2D_fdexl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-5, -0.75)
+shape = SubResource("RectangleShape2D_3stgv")
